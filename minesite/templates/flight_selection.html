@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Location and Date</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      </head>
+      <div class="container">
+        {% if errors %}
+            {% for error in errors %}
+            <div class="alert alert-danger">
+                <strong>Alert! </strong>{{error}}
+            </div>
+            {% endfor %}
+        {% endif %}
+        </div>
+        <body style="background-color: #162447;">
+                <p></p>
+            <div class="container">
+                <p></p>
+                <h1 style="color:#E43F5A;">Select Location & Date</h1>
+                </div>
+                <p></p>
+                <div class="progress">
+                    <div class="progress-bar bg-success" style="width:25%">
+                    </div>
+                </div>
+                <p></p>
+                <div class = "container" style="padding: 2px; align-content: center; background-color: #E43F5A;">
+                <form name = "flightselectionform" method = "POST"> {% csrf_token %} 
+                    <h4 style="color:#162447;"> Booking Under: <input type="text" style="background-color:lightgoldenrodyellow" name = "username" value = {{username}} readonly/></h4>
+                    <h4 style="color:#162447;">From <input type = "text" style="background-color:lightgoldenrodyellow" placeholder = "From" name = "from"/></h4>
+                    <h4 style="color:#162447;">To <input type = "text" style="background-color:lightgoldenrodyellow" placeholder = "To" name = "to"/></h4>
+                    <h4 style="color:#162447;"><label for = "class">Choose a Class:</label>
+                    <select style="color:#162447;background-color:lightgoldenrodyellow" name = "class" id="class">
+                        <option value = "Economy">Economy</option>
+                        <option value = "Business">Business</option>
+                    </select></h4>
+                    <h4 style="color:#162447;">Number of Passengers <input style="background-color:lightgoldenrodyellow" type="number" placeholder="Number of Passengers" name="num_passangers" value = "1" min="1"/></h4>
+                    <h4 style="color:#162447;">Depart Date <input style="background-color:lightgoldenrodyellow" type="date" name="date" value="{{currentdate}}" min = "{{currentdate}}"></h4>
+                    <input type = "submit" class = "btn btn-success" value = "Submit" />
+                    <input type = "button" class = "btn btn-danger" value = "Cancel" onclick="window.location.href='http://127.0.0.1:8000/minesite/'"/>
+            </form>
+        </div>
+    </body>
+</html>
+

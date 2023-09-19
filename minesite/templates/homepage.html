@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mine Home</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <body style="background-color: #162447;">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class = "navbar-header">
+                    <a class ="navbar-brand" href="#">Mine Airlines</a>
+                </div>
+                <div class = "navbar navbar-nav"><a href="http://127.0.0.1:8000/minesite/#">Home</a></div>
+                <div class = "navbar navbar-nav"><a href="http://127.0.0.1:8000/minesite/accountdetails/{{username}}/">Account Details</a></div>
+                <div class = "navbar navbar-nav"><a href="http://127.0.0.1:8000/minesite/flightbooking/{{username}}/">Book a Flight</a></div>
+                <div class = "navbar navbar-nav"><a href="http://127.0.0.1:8000/minesite/myupcomingflights/{{username}}/">My Upcoming Flights</a></div>
+                <div class = "navbar navbar-nav"><a href="http://127.0.0.1:8000/minesite/mytransactions/{{username}}/">My Bookings</a></div>
+                <div class = "navbar navr-nav"><a href="http://127.0.0.1:8000/">About Us</a></div>
+                <div class = "navbar navr-nav"><a href="http://127.0.0.1:8000/">Sign out</a></div>
+                <div class = "navbar navbar-nav"><a href = "">Logged in as {{username}}</a></div>    
+            </div>
+            <p></p>
+            <h1 style="color:#E43F5A;">Welcome {{name}}</h1>
+            <p></p>
+        </nav>
+        <blockquote class="blockquote">
+            <footer class="blockquote-footer">We hope you enjoy your Stay here!</footer>
+        </blockquote>
+    </body>
+</html>

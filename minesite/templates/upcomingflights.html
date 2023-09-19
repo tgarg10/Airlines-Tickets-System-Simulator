@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Upcoming Flights</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      </head>
+      <body style="background-color: #162447;">
+        <body style="background-color: #162447;">
+            <div class="container">
+            <h2 style="color:#E43F5A">My Upcoming Flights <input type = "button" class = "btn btn-info" value = "Go Back" onclick="history.back()"/></h2>
+            <ul class = "listgroup">
+        {% for transaction in transactions %}
+            {% ifequal transaction.status "CONFIRMED"  %}
+            <li class="list-group-item list-group-item-success">
+                FLIGHT CODE:{{transaction.code}}<br/>
+                TRANSACTION NUMBER:{{transaction.transaction_num}}<br/>
+                FROM:{{transaction.fromplace}}<br/>
+                TO:{{transaction.toplace}}<br/>
+                PAYMENT MODE:{{transaction.paymentmode}}<br/>
+                CLASS:{{transaction.flightclass}}<br/>
+                SEAT:{{transaction.seatnumbers}}<br/>
+                MEAL:{{transaction.mealpreferance}}<br/>
+                DATE:{{transaction.flightdate}}<br/>
+                TIME:{{transaction.flighttime}}<br/>
+                STATUS:{{transaction.status}}<br/>
+            </li>
+            {% else %}
+            <li class="list-group-item list-group-item-danger">
+                FLIGHT CODE:{{transaction.code}}<br/>
+                TRANSACTION NUMBER:{{transaction.transaction_num}}<br/>
+                FROM:{{transaction.fromplace}}<br/>
+                TO:{{transaction.toplace}}<br/>
+                PAYMENT MODE:{{transaction.paymentmode}}<br/>
+                CLASS:{{transaction.flightclass}}<br/>
+                SEAT:{{transaction.seatnumbers}}<br/>
+                MEAL:{{transaction.mealpreferance}}<br/>
+                DATE:{{transaction.flightdate}}<br/>
+                TIME:{{transaction.flighttime}}<br/>
+                STATUS:{{transaction.status}}<br/>
+            {% endifequal %}
+        {% endfor %}
+    </body>
+</html> 

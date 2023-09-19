@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Review Transaction</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      </head>
+        <body style="background-color: #162447;">
+                <p></p>
+            <div class="container">
+                <p></p>
+                <h1 style="color:#E43F5A;">Confirm Transaction</h1>
+                </div>
+                <p></p>
+                <div class="progress">
+                    <div class="progress-bar bg-success" style="width:50%">
+                    </div>
+                </div>
+                <p></p>
+                <div class = "container" style="padding: 2px; align-content: center; background-color: #E43F5A;">
+        <form name = "transactionform" action="{% url 'minesite:transaction_page' %}" method = "post"> {% csrf_token %}
+            <h4 style="color:#162447;">Booking Under: <input type="text" style="background-color:lightgoldenrodyellow" name = "username" value = {{username}} readonly/></h4>
+            <h4 style="color:#162447;">From <input type="text" style="background-color:lightgoldenrodyellow" name = "fromplace" value = {{fromplace}} readonly/> To <input type="text" style="background-color:lightgoldenrodyellow" name = "toplace" value = {{toplace}} readonly/> - Flight <input type="text" name = "flightcode" style="background-color:lightgoldenrodyellow" value = {{flightcode}} readonly/></h4>
+            <h4 style="color:#162447;"><input type="text" style="background-color:lightgoldenrodyellow" name = "flightclass" value = {{flightclass}} readonly/> Price - {{price}}</h4>
+            <h4 style="color:#162447;">Number of Passangers - <input type="number" style="background-color:lightgoldenrodyellow" name = "num_passangers" value = {{number}} readonly/></h4>
+            <h4 style="color:#162447;">Total(including Tax) - <input type="number" style="background-color:lightgoldenrodyellow" name = "total" value = {{total}} readonly/></h4>
+            <h4><label for = "paymentmode">Choose the mode of Payment: </label>
+            <select style="color:#162447;background-color:lightgoldenrodyellow" name = "paymentmode" id="paymentmode">
+                <option value = "VISA">VISA</option>
+                <option value = "PayPal">PayPal</option>
+            </select></h4>
+            <input type = "submit" class="btn btn-success" value = "Confirm Payment" />
+            <input type = "button" class="btn btn-danger" value = "Go Back" onclick="history.back()">   
+        </form>
+        </div>    
+    </body>
+</html>

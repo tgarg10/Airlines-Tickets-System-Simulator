@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Log in</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      </head>
+    <div class="container">
+    {% if errors %}
+        {% for error in errors %}
+        <div class="alert alert-danger">
+            <strong>Alert! </strong>{{error}}
+        </div>
+        {% endfor %}
+    {% endif %}
+    </div>
+        <body style="background-color: #162447;">
+            <p></p>
+            <div class = "container" style="padding: 2px; align-content: center; background-color: #E43F5A;">
+                <div class="jumbotron" style="background-color: #E43F5A">
+            <form name = "loginform" action = "{% url 'minesite:login' %}" method = "POST"> {% csrf_token %}
+                <div class = "input-group">
+                <h1 style="color:#162447;">Username: <input type = "text" style="background-color:lightgoldenrodyellow;" class="form-control" placeholder="Username" name = "username"/></h1>
+                </div>
+                <div class = "input-group">
+                <h1 style="color:#162447;"> Password: <input type = "password" style="background-color:lightgoldenrodyellow;" class="form-control" placeholder="Password" name = "password"/></h1>
+                </div>
+                <p><input type = "submit" value = "Log in" class="btn btn-success"/>
+                <input type = "button" value = "Create an Account here" onclick="window.location.href='http://127.0.0.1:8000/minesite/signup/'" class="btn btn-info"></p>     
+        </form>
+        </div>
+    </div>
+    </body> 
+</html>

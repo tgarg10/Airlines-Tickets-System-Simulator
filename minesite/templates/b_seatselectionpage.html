@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Seat Selection</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      </head>
+      <div class="container">
+        {% if errors %}
+            {% for error in errors %}
+            <div class="alert alert-danger">
+                <strong>Alert! </strong>{{error}}
+            </div>
+            {% endfor %}
+        {% endif %}
+        </div>
+      <body style="background-color: #162447;">
+        <p></p>
+        <div class="container">
+            <p></p>
+            <h1 style="color:#E43F5A;">Select Seat</h1>
+            </div>
+            <p></p>
+            <div class="progress">
+                <div class="progress-bar bg-success" style="width:75%">
+                </div>
+            </div>
+        <p></p>
+        <form name = "seatselectionform" action = "{% url 'minesite:b_seatselection_page' %}" method = "post"> {% csrf_token %}
+            <div class="container">
+            <p></p>
+            <h3 style="color:#E43F5A;">Booking Under: <input type="text" style="background-color:lightgoldenrodyellow" name = "username" value = {{username}} readonly/></h3>
+            <h3 style="color:#E43F5A;">Flight: <input type="text" style="background-color:lightgoldenrodyellow" name = "flightcode" value = {{flightcode}} readonly/></h3>
+            <h3 style="color:#E43F5A;"><label for = "food">Choose Your Meal Preferance:</label>
+            <select style="background-color:lightgoldenrodyellow" name = "meal" id="meal">
+                <option value = "Vegetarian">Vegetarian</option>
+                <option value = "Non-Vegetarian">Non-Vegetarian</option>
+                <option value = "Vegan">Vegan</option>
+            </select>
+            </h3>
+            <h3 style="color:#E43F5A;">Select <input  type="text" style="background-color:lightgoldenrodyellow" name = "num_seats" value = {{num_seats}} readonly/> Seat(s):</h3>
+            <div class="container">
+            <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <td>Seat</td>
+                    <td>BA</td>
+                    <td>BB</td>
+                    <td></td>
+                    <td>BC</td>
+                    <td>BD</td>
+                    <td></td>
+                    <td>BE</td>
+                    <td>BF</td>
+                </tr>
+            </thead>
+                {% for i in num %}
+                    <tr>
+                        <td>{{i}}</td>
+                        <td><input type="checkbox" id = BA{{i}} value = BA{{i}} name = "seat"/></td>
+                        <td><input type="checkbox" id = BB{{i}} value = BB{{i}} name = "seat"/></td>
+                        <td></td>
+                        <td><input type="checkbox" id = BC{{i}} value = BC{{i}} name = "seat"/></td>
+                        <td><input type="checkbox" id = BD{{i}} value = BD{{i}} name = "seat"/></td>
+                        <td></td>
+                        <td><input type="checkbox" id = BE{{i}} value = BE{{i}} name = "seat"/></td>
+                        <td><input type="checkbox" id = BF{{i}} value = BF{{i}} name = "seat"/></td>
+                    </tr>
+                {% endfor %}
+            </table> 
+            </div>
+            {% for seat in bookedseats %}
+            <script>
+                document.getElementById("{{seat}}").disabled = true;
+            </script>
+            {% endfor %}
+            <p><input type = "submit" class="btn btn-success" value = "Submit"/></p>
+            <h4 style="color:#E43F5A;">If no Seat/Food is submitted, any available Seat(s) will be choosen. </h4>
+            <h4 style="color:#E43F5A;">You're booking will not be cancelled and you will still be charged.</h4>
+            <h4 style="color:#E43F5A;">Please manually Cancel your Booking from Home Page or contact Staff.</h4>
+        </div>
+        </form>
+    </body>
+</html>

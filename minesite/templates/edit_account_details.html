@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Edit Account Details</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      </head>
+      <div class="container">
+        {% if errors %}
+            {% for error in errors %}
+            <div class="alert alert-danger">
+                <strong>Alert! </strong>{{error}}
+            </div>
+            {% endfor %}
+        {% endif %}
+        </div>
+        <body style="background-color: #162447;">
+                <p></p>
+            <div class="container">
+                <p></p>
+                <h1 style="color:#E43F5A;">Edit Account Details</h1>
+                <p></p>
+                </div>
+                <form name = "editaccountdetails" method = "POST"> {% csrf_token %} 
+                <div class = "container" style="padding: 2px; align-content: center; background-color: #E43F5A;">
+                <h3 style="color:#1F4068">Name<input type="text" style="background-color:lightgoldenrodyellow;" placeholder = "Name" name = "name" value = {{name}}></h3>
+                <p></p>
+                <h3 style="color:#1F4068">Username<input type="text" style="background-color:lightgoldenrodyellow;" placeholder = "Username" name = "username" value = {{username}} disabled/></h3>
+                <p></p>
+                <h3 style="color:#1F4068">Password<input type="password" style="background-color:lightgoldenrodyellow;" placeholder = "Password" name = "password"/></h3>
+                <p></p>
+                <h3 style="color:#1F4068">Confirm Password<input type="password" style="background-color:lightgoldenrodyellow;" placeholder = "Confirm Password" name = "confirmpassword"/></h3>
+                <p></p>
+                <h3 style="color:#1F4068">Email (Optional)<input type="text" style="background-color:lightgoldenrodyellow;" placeholder = "Email" name = "email" value = {{email}}></h3>
+                <p></p>
+            </div>
+            <div class="container">
+                <p></p>
+                <p><input type = "submit" class="btn btn-success" value = "Submit">
+                <input type = "button" class="btn btn-danger" value = "Go Back" onclick="window.location.href='http://127.0.0.1:8000/minesite/accountdetails/{{username}}/'"></p>
+            </div>
+        </form>
+    </body>
+</html>

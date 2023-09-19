@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Account Details</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      </head>
+    <body style="background-color: #162447;">
+        <div class="container">
+        <p></p>
+        <h1 style="color:#E43F5A;"> Account Details</h1>
+        <p></p>
+        </div>
+        <div class = "container" style="padding: 2px; align-content: center; background-color: #E43F5A;">
+        <h2 style="color:#1F4068">Name: {{name}}</h2>
+        <p></p>
+        <h2 style="color:#1F4068">Username: {{username}}</h2>
+        <p></p>
+        <h2 style="color:#1F4068">Email: {{email}}</h2>
+        <p></p>
+    </div>
+    <div class="container">
+        <p></p>
+       <p><input type = "button" class="btn btn-success" value = "Edit Account Details" onclick="window.location.href='http://127.0.0.1:8000/minesite/editaccountdetails/{{username}}/'">
+       <input type = "button" class="btn btn-warning" value = "Delete Account" onclick="window.location.href='http://127.0.0.1:8000/minesite/deleteaccount/{{username}}/'"> </p>
+       <p><input type = "button" class="btn btn-danger" value = "Go Back" onclick="window.location.href='http://127.0.0.1:8000/minesite/'">
+       <input type = "button" class="btn btn-danger" value = "Signout" onclick="window.location.href='http://127.0.0.1:8000/'"></p>
+    </div>
+    </body>
+</html>

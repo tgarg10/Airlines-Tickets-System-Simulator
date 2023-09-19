@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign up</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      </head>
+      <div class="container">
+        {% if errors %}
+            {% for error in errors %}
+            <div class="alert alert-danger">
+                <strong>Alert! </strong>{{error}}
+            </div>
+            {% endfor %}
+        {% endif %}
+        </div>
+        <body style="background-color: #162447;">
+        <div class = "container" style="padding: 2px; align-content: center; background-color: #E43F5A;">
+            <div class="jumbotron" style="background-color: #E43F5A">
+        <form name = "signupform" action = "{% url 'minesite:signup' %}" method = "post"> {% csrf_token %}
+            <div class = "input-group"><strong><p>Name:<input type = "text" style="background-color:lightgoldenrodyellow;" class="form-control" placeholder = "Name" name = "name" /></p></strong></div>
+            <div class = "input-group"><strong><p>Username:<input type = "text" style="background-color:lightgoldenrodyellow;" class="form-control" placeholder = "Username" name = "username"/></p></strong></div>
+            <div class = "input-group"><strong><p>Password:<input type = "Password" style="background-color:lightgoldenrodyellow;" class="form-control" placeholder = "Password" name = "password"/></p></strong></div>
+            <div class = "input-group"><strong><p>Confirm Password:<input type = "Password" style="background-color:lightgoldenrodyellow;" class="form-control" placeholder = "Confirm Password" name = "confirmpassword"/></p></strong></div>
+            <div class = "input-group"><strong><p>Email (Optional): <input type = "email" style="background-color:lightgoldenrodyellow;" class="form-control" placeholder = "Email" name = "email" /></p></strong></div>
+            <p><input type = "submit" class="btn btn-success" value = "Submit" /></p> 
+            <input type = "button" class="btn btn-info" value = "Already have an Account?" onclick="window.location.href='http://127.0.0.1:8000/minesite/'"/>    
+            </form>
+        </div>
+    </div>
+</body>
+</html>
